@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Cliente } from '../cliente';
 import { ClienteService } from '../cliente.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-lista-clientes',
@@ -11,7 +12,7 @@ export class ListaClientesComponent implements OnInit{
 
   clientes:Cliente[];
 
-  constructor(private clienteServicio:ClienteService){}
+  constructor(private clienteServicio:ClienteService, private router:Router){}
 
   ngOnInit(): void {
     this.obtenerClientes();
@@ -20,7 +21,23 @@ export class ListaClientesComponent implements OnInit{
   //Con este metodo nos suscribimos a ese listado, lo obtenemos y lo inicializamos en el OnInIt;
   private obtenerClientes(){
     this.clienteServicio.obtenerListaClientes().subscribe(dato => {
+      
       this.clientes = dato;
     })
+  }
+
+  eliminarCliente(id: number) {
+    this.clienteServicio.eliminarCliente(id).subscribe(dato => {
+      console.log(dato);
+      this.obtenerClientes();
+    }) 
+  }
+
+  actualizarCliente(id: number) {
+    this.router.navigate(['actualizar-cliente', id]);
+  }
+
+  verDetallesCliente(id:number){
+    this.router.navigate(['cliente-detalles', id]);
   }
 }

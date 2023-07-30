@@ -23,8 +23,9 @@ public class Cliente {
     private String email;
     @Column(name="telefono", length = 60, nullable = false)
     private String telefono;
-    @Column(name="dni", length = 60, nullable = false, unique = true)
+    @Column(name="dni", length = 60, nullable = false)
     private String dni;
+    
 
     public Cliente(Long id, String nombre, String apellido, String email, String telefono, String dni) {
         this.id = id;
@@ -69,13 +70,13 @@ public class Cliente {
     public void setTelefono(String telefono) {
         this.telefono = telefono;
     }
-    public String getDni() {
-        return dni;
-    }
+    
     public void setDni(String dni) {
         this.dni = dni;
     }
-
+    public String getDni(){
+        return dni;
+    }
     
     
 }

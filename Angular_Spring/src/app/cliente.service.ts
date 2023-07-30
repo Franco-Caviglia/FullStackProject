@@ -17,6 +17,18 @@ export class ClienteService {
     return this.httpClient.get<Cliente[]>(`${this.baseURL}`);
   }
   
+  //metodo para registrar un cliente en la lista;
+  registrarCliente(cliente : Cliente) : Observable<Object>{
+    return this.httpClient.post(`${this.baseURL}`, cliente); //Envio desde el backend y con el httpClient lo recibo;
+  }
+
+  actualizarCliente(id:number, cliente : Cliente) : Observable<Object>{
+    return this.httpClient.put(`${this.baseURL}/${id}`,cliente);
+  }
+  
+  eliminarCliente(id:number) : Observable<Object>{
+    return this.httpClient.delete(`${this.baseURL}/${id}`);
+  }
 
   
 }
