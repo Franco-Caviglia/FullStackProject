@@ -1,1 +1,116 @@
-<p>actualizar-cliente works!</p>
+<div class="col-md-6 offset-md-3">
+    <h3 class="text-center">Actualiar informacion del cliente</h3>
+
+    <form (ngSubmit)="onSubmit()" #clienteForm="ngForm">
+        <div class="form-group">
+            <label>Nombre: </label>
+            <input type="text" 
+            class="form-control" 
+            id="nombre" 
+            [(ngModel)]="cliente.nombre"
+            name="nombre"
+            required
+            minlength="4"
+            maxlength="10"
+            placeholder="Escriba su nombre:"
+            #nombre = "ngModel"> <!-- este NgModel sirve para poder capturar todos los errores; -->
+
+            <div class="alert alert-danger" *ngIf="nombre.invalid && (nombre.dirty || nombre.touched)">
+                <div *ngIf="nombre.errors.required">
+                    Escriba su nombre por favor
+                </div>
+                <div *ngIf="nombre.errors.minlength">
+                    Su nombre es demasiado corto 
+                </div>
+                <div *ngIf="nombre.errors.maxlength">
+                    Su nombre es demasiado largo
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>Apellido: </label>
+            <input type="text" 
+            class="form-control" 
+            id="apellido" 
+            [(ngModel)]="cliente.apellido"
+            name="apellido"
+            required
+            minlength="4"
+            maxlength="10"
+            placeholder="Escriba su apellido:"
+            #apellido = "ngModel">
+
+            <div class="alert alert-danger" *ngIf="apellido.invalid && (apellido.dirty || apellido.touched)">
+                <div *ngIf="apellido.errors.required">
+                    Escriba su apellido por favor
+                </div>
+                <div *ngIf="apellido.errors.minlength">
+                    Su apellido es demasiado corto 
+                </div>
+                <div *ngIf="apellido.errors.maxlength">
+                    Su apellido es demasiado largo
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>Email: </label>
+            <input type="email" 
+            class="form-control" 
+            id="email" 
+            [(ngModel)]="cliente.email"
+            name="email"
+            pattern="[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*@[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{1,5}"
+            required
+            placeholder="Escriba su emai:"
+            #email = "ngModel"
+            > <!-- pattern, indica el patron que debe seguir el email, para evitar equivocaciones-->
+
+            <div class="alert alert-danger" *ngIf="email.invalid && (email.dirty || email.touched)">
+                <div *ngIf="email.errors.required">
+                    Escriba su email por favor
+                </div>
+                <div *ngIf="email.errors.pattern">
+                    Por favor escriba su email con el sig. formato: user1231@gmail.com 
+                </div>
+            </div>
+
+        </div>
+
+        <div class="form-group">
+            <label>Telefono: </label>
+            <input type="text" 
+            class="form-control" 
+            id="telefono" 
+            [(ngModel)]="cliente.telefono"
+            name="telefono"
+            placeholder="Escriba su telefono:"
+            required>
+        </div>
+
+        <div class="form-group">
+            <label>DNI: </label>
+            <input type="text" 
+            class="form-control" 
+            id="dni" 
+            [(ngModel)]="cliente.dni"
+            name="dni"
+            placeholder="Escriba su dni:"
+            required>
+        </div>
+
+        <div class="form-group">
+            <label>Servicio: </label>
+            <input type="text" 
+            class="form-control" 
+            id="servicio" 
+            [(ngModel)]="cliente.tipoCliente"
+            name="servicio"
+            placeholder="Servicio que posee:"
+            required>
+        </div>
+
+        <button class="btn btn-success" [disabled]="!clienteForm.form.valid">Guardar</button>
+    </form>
+</div>

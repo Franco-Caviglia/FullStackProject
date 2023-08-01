@@ -7,6 +7,8 @@ import { Cliente } from './cliente';
   providedIn: 'root'
 })
 export class ClienteService {
+
+  
   //base url del listado de clientes en el backend;
   private baseURL = "http://localhost:8080/api/v1/clientes";
   
@@ -30,5 +32,7 @@ export class ClienteService {
     return this.httpClient.delete(`${this.baseURL}/${id}`);
   }
 
-  
+  obtenerClienteId(id: number) : Observable<Object>{
+    return this.httpClient.get(`${this.baseURL}/${id}`);
+  }
 }

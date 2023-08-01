@@ -27,6 +27,7 @@ export class RegistrarClienteComponent implements OnInit{
   irALaListaClientes(){
     this.router.navigate(['/clientes']);
   }
+  
   onSubmit(){
     this.guardarCliente();
   }

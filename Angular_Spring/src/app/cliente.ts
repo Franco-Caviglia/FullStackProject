@@ -5,5 +5,6 @@ export class Cliente {
     apellido:string;
     email:string;
     telefono:string;
-    dni:string
+    dni:string;
+    tipoCliente:string;
 }
