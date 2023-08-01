@@ -5,7 +5,6 @@ import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.integration.IntegrationProperties.RSocket.Client;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -22,7 +21,7 @@ import com.clientes.gestion_clientes.modelo.Cliente;
 import com.clientes.gestion_clientes.repository.ClienteRepository;
 
 @RestController
-@RequestMapping("/api/v1")
+@RequestMapping("/api/{administrador}")
 @CrossOrigin(origins = "http://localhost:4200")
 public class ClienteControlador {
     
@@ -61,7 +60,8 @@ public class ClienteControlador {
         cliente.setEmail(detallesCliente.getEmail());
         cliente.setTelefono(detallesCliente.getTelefono());
         cliente.setDni(detallesCliente.getDni());
-
+        cliente.setTipoCliente(detallesCliente.getTipoCliente());
+        
         Cliente clienteActualizado = repository.save(cliente);
         
         return ResponseEntity.ok(clienteActualizado);
