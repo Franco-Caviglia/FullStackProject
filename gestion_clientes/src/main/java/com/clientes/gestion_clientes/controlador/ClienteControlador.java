@@ -26,7 +26,7 @@ import com.clientes.gestion_clientes.repository.ClienteRepository;
 public class ClienteControlador {
     
     @Autowired
-    private ClienteRepository repository;
+    private ClienteRepository repository;//Var utilizada para conectarse a la BD y asi traer o enviar las consultas;
 
     //este metodo es para listar todos los clientes;
     @GetMapping("/clientes")
@@ -41,36 +41,38 @@ public class ClienteControlador {
     }
 
 
-    //metodo para buscar Cliente por ID, y arrojar excepcion si no lo encuentra;
-    @GetMapping("/clientes/{id}")
-    public ResponseEntity<Cliente> obtenerClienteId(@PathVariable Long id){
-        Cliente cliente = repository.findById(id)
-                            .orElseThrow(()-> new ResourceNotFoundException("No existe el cliente con el id: " + id));
+    //metodo para buscar Cliente por numero de cuenta, y arrojar excepcion si no lo encuentra;
+    @GetMapping("/clientes/{numCuenta}")
+    public ResponseEntity<Cliente> obtenerClienteId(@PathVariable Long numCuenta){
+        Cliente cliente = repository.findById(numCuenta)
+                            .orElseThrow(()-> new ResourceNotFoundException("No existe el cliente con el id: " + numCuenta));
         return ResponseEntity.ok(cliente);
     }
 
     //Este metodo actualiza la info de los clientes;
-    @PutMapping("/clientes/{id}")
-    public ResponseEntity<Cliente> actualizarCliente(@PathVariable Long id, @RequestBody Cliente detallesCliente){
-        Cliente cliente = repository.findById(id)
-                            .orElseThrow(()-> new ResourceNotFoundException("No existe el cliente con el id: " + id));
-        
+    @PutMapping("/clientes/{numCuenta}")
+    public ResponseEntity<Cliente> actualizarCliente(@PathVariable Long numCuenta, @RequestBody Cliente detallesCliente){
+        Cliente cliente = repository.findById(numCuenta)
+                            .orElseThrow(()-> new ResourceNotFoundException("No existe el cliente con el id: " + numCuenta));
+
         cliente.setNombre(detallesCliente.getNombre());
         cliente.setApellido(detallesCliente.getApellido());
         cliente.setEmail(detallesCliente.getEmail());
         cliente.setTelefono(detallesCliente.getTelefono());
         cliente.setDni(detallesCliente.getDni());
         cliente.setTipoCliente(detallesCliente.getTipoCliente());
+        cliente.setServicioAbonado(detallesCliente.getServicioAbonado());
+
         
         Cliente clienteActualizado = repository.save(cliente);
         
         return ResponseEntity.ok(clienteActualizado);
     }
 
-    @DeleteMapping("/clientes/{id}")
-    public ResponseEntity<Map<String,Boolean>>eliminarCliente(@PathVariable Long id){
-		Cliente cliente = repository.findById(id)
-				            .orElseThrow(() -> new ResourceNotFoundException("No existe el empleado con el ID : " + id));
+    @DeleteMapping("/clientes/{numCuenta}")
+    public ResponseEntity<Map<String,Boolean>>eliminarCliente(@PathVariable Long numCuenta){
+		Cliente cliente = repository.findById(numCuenta)
+				            .orElseThrow(() -> new ResourceNotFoundException("No existe el empleado con el ID : " + numCuenta));
 		
 		repository.delete(cliente);
 		Map<String, Boolean> respuesta = new HashMap<>();
