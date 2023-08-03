@@ -21,7 +21,7 @@ import com.clientes.gestion_clientes.modelo.Cliente;
 import com.clientes.gestion_clientes.repository.ClienteRepository;
 
 @RestController
-@RequestMapping("/api/{administrador}")
+@RequestMapping("/api/v2")
 @CrossOrigin(origins = "http://localhost:4200")
 public class ClienteControlador {
     

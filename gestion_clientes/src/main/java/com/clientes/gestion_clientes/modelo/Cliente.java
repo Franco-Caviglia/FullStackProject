@@ -5,8 +5,6 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 @Entity
@@ -16,7 +14,8 @@ public class Cliente {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
+    @Column(name="N. Cuenta", length = 60, nullable = false, unique = true)
+    private Long numCuenta;
     @Column(name="nombre", length = 60, nullable = false)
     private String nombre;
     @Column(name="apellido", length = 60, nullable = false)
@@ -30,12 +29,10 @@ public class Cliente {
     @Column(name="tipoCliente", length = 10, nullable = false)
     private String tipoCliente;
 
-    @ManyToOne
-    @JoinColumn(name = "FK_Administrador", nullable = false, updatable = false)
-    private Administrador administrador;
+    
 
 
-    public Cliente(Long id, String nombre, String apellido, String email, String telefono, String dni, String tipoCliente, Administrador administrador) {
+    public Cliente(Long id, String nombre, String apellido, String email, String telefono, String dni, String tipoCliente, Long numCuenta) {
         this.id = id;
         this.nombre = nombre;
         this.apellido = apellido;
@@ -43,7 +40,7 @@ public class Cliente {
         this.telefono = telefono;
         this.dni = dni;
         this.tipoCliente = tipoCliente;
-        this.administrador = administrador;
+        this.numCuenta = numCuenta;
     }
 
     public Cliente() {
@@ -96,13 +93,15 @@ public class Cliente {
         this.tipoCliente = tipoCliente;
     }
 
-    public Administrador getAdministrador() {
-        return administrador;
+    public Long getNumCuenta() {
+        return numCuenta;
     }
 
-    public void setAdministrador(Administrador administrador) {
-        this.administrador = administrador;
+    public void setNumCuenta(Long numCuenta) {
+        this.numCuenta = numCuenta;
     }
+
+    
     
     
 }
