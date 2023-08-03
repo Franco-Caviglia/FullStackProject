@@ -3,25 +3,27 @@
 <table class="table table-striped">
     <thead class="table-dark">
         <tr>
-            <th>Num</th>
+            <th>Num Cuenta</th>
             <th>Nombre</th>
             <th>Apellido</th>
             <th>Email</th>
             <th>Servicio</th>
+            <th>Linea telefono</th>
             <th>Acciones</th>
         </tr>
     </thead>
     <tbody *ngFor="let cliente of clientes">
         <tr>
-            <th>{{cliente.id}}</th>
+            <th>{{cliente.numCuenta}}</th>
             <th>{{cliente.nombre}}</th>
             <th>{{cliente.apellido}}</th>
             <th>{{cliente.email}}</th>
             <th>{{cliente.tipoCliente}}</th>
+            <th>{{cliente.servicioAbonado}}</th>
 
-            <button (click)="actualizarCliente(cliente.id)" class="btn btn-info">Actualizar</button>
-            <button (click)="eliminarCliente(cliente.id)" class="btn btn-danger" style="margin-left: 10px;">Eliminar</button>
-            <button (click)="verDetallesCliente(cliente.id)" class="btn btn-primary">Detalles</button>
+            <button (click)="actualizarCliente(cliente.numCuenta)" class="btn btn-info">Actualizar</button>
+            <button (click)="eliminarCliente(cliente.numCuenta)" class="btn btn-danger" style="margin-left: 10px;">Eliminar</button>
+            <button (click)="verDetallesCliente(cliente.numCuenta)" class="btn btn-primary">Detalles</button>
         </tr>
         
             

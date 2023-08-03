@@ -1,0 +1,104 @@
+<div>
+    <form (ngSubmit)="onSubmit()" #clienteForm="ngForm">
+        <div>
+        <div class="mb-3">
+            <label for="numCuenta" class="form-label">Numero Cuenta</label>
+            <input type="number" 
+            class="form-control" 
+            id="numCuenta" 
+            [(ngModel)]="cliente.numCuenta"
+            name="numCuenta"
+            required
+            #numCuenta = "ngModel"
+            placeholder="Ingrese numero de cuenta">
+        </div>
+        <div class="mb-3">
+            <label for="nombre" class="form-label">Nombre</label>
+            <input type="text" 
+            class="form-control" 
+            id="nombre" 
+            [(ngModel)]="cliente.nombre"
+            name="nombre"
+            required
+            minlength="4"
+            maxlength="10"
+            placeholder="Ingrese su nombre"
+            #nombre = "ngModel">
+        </div>
+        <div class="mb-3">
+            <label for="apellido" class="form-label">Apellido</label>
+            <input type="text" 
+            class="form-control" 
+            id="apellido" 
+            [(ngModel)]="cliente.apellido"
+            name="apellido"
+            required
+            minlength="4"
+            maxlength="10"
+            placeholder="Ingrese su apellido"
+            #apellido="ngModel">
+        </div>
+        <div class="mb-3">
+            <label for="email" class="form-label">Email</label>
+            <input type="email" 
+            class="form-control" 
+            id="email" 
+            [(ngModel)]="cliente.email"
+            name="email"
+            required
+            placeholder="Ingrese su email: name@example.com"
+            #email="ngModel">
+        </div>
+        <div class="mb-3">
+            <label for="telefono" class="form-label">Telefono</label>
+            <input type="text" 
+            class="form-control" 
+            id="telefono" 
+            [(ngModel)]="cliente.telefono"
+            name="telefono"
+            required
+            placeholder="Ingrese su telefono"
+            #telefono="ngModel">
+        </div>
+        <div class="mb-3">
+            <label for="dni" class="form-label">DNI</label>
+            <input type="number" 
+            class="form-control" 
+            id="dni" 
+            [(ngModel)]="cliente.dni"
+            name="dni"
+            required
+            placeholder="Ingrese su dni"
+            #dni="ngModel">
+        </div>
+        <div class="mb-3">
+            <label for="tipoCliente" class="form-label">Servicio abonado</label>
+            <input type="text" 
+            class="form-control" 
+            id="tipoCliente" 
+            [(ngModel)]="cliente.tipoCliente"
+            name="tipoCliente"
+            required
+            minlength="4"
+            maxlength="10"
+            placeholder="Ingrese su servicio"
+            #tipoCliente="ngModel">
+        </div>
+        <div class="mb-3">
+            <label for="servicioAbonado" class="form-label">Servicio telefono</label>
+            <input type="text" 
+            class="form-control" 
+            id="servicioAbonado" 
+            [(ngModel)]="cliente.servicioAbonado"
+            name="servicioAbonado"
+            required
+            minlength="4"
+            maxlength="10"
+            placeholder="Ingrese su servicio de telefono"
+            #servicioAbonado="ngModel">
+        </div>
+        <button class="btn btn-success" [disabled]="!clienteForm.form.valid" (click)="onSubmit()">Guardar</button>
+        </div>
+        
+    </form>
+</div>
