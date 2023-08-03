@@ -42,18 +42,18 @@ public class ClienteControlador {
 
 
     //metodo para buscar Cliente por numero de cuenta, y arrojar excepcion si no lo encuentra;
-    @GetMapping("/clientes/{numCuenta}")
-    public ResponseEntity<Cliente> obtenerClienteId(@PathVariable Long numCuenta){
-        Cliente cliente = repository.findById(numCuenta)
-                            .orElseThrow(()-> new ResourceNotFoundException("No existe el cliente con el id: " + numCuenta));
+    @GetMapping("/clientes/{id}")
+    public ResponseEntity<Cliente> obtenerClienteId(@PathVariable Long id){
+        Cliente cliente = repository.findById(id)
+                            .orElseThrow(()-> new ResourceNotFoundException("No existe el cliente con el id: " + id));
         return ResponseEntity.ok(cliente);
     }
 
     //Este metodo actualiza la info de los clientes;
-    @PutMapping("/clientes/{numCuenta}")
-    public ResponseEntity<Cliente> actualizarCliente(@PathVariable Long numCuenta, @RequestBody Cliente detallesCliente){
-        Cliente cliente = repository.findById(numCuenta)
-                            .orElseThrow(()-> new ResourceNotFoundException("No existe el cliente con el id: " + numCuenta));
+    @PutMapping("/clientes/{id}")
+    public ResponseEntity<Cliente> actualizarCliente(@PathVariable Long id, @RequestBody Cliente detallesCliente){
+        Cliente cliente = repository.findById(id)
+                            .orElseThrow(()-> new ResourceNotFoundException("No existe el cliente con el id: " + id));
 
         cliente.setNombre(detallesCliente.getNombre());
         cliente.setApellido(detallesCliente.getApellido());
@@ -69,10 +69,12 @@ public class ClienteControlador {
         return ResponseEntity.ok(clienteActualizado);
     }
 
-    @DeleteMapping("/clientes/{numCuenta}")
-    public ResponseEntity<Map<String,Boolean>>eliminarCliente(@PathVariable Long numCuenta){
-		Cliente cliente = repository.findById(numCuenta)
-				            .orElseThrow(() -> new ResourceNotFoundException("No existe el empleado con el ID : " + numCuenta));
+    @DeleteMapping("/clientes/{id}")
+    public ResponseEntity<Map<String,Boolean>>eliminarCliente(@PathVariable Long id){
+		Cliente cliente = repository.findById(id
+)
+				            .orElseThrow(() -> new ResourceNotFoundException("No existe el empleado con el ID : " + id
+                    ));
 		
 		repository.delete(cliente);
 		Map<String, Boolean> respuesta = new HashMap<>();

@@ -14,7 +14,7 @@ import lombok.Setter;
 public class Cliente {
     
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Getter @Setter @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @Getter @Setter @Column(name="N. Cuenta", length = 60, nullable = false, unique = true)
     private Long numCuenta;//Numero de cuenta que tiene el cliente, es UNICO. Utilizado para identificarlo;
