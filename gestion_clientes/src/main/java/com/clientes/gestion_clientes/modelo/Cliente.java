@@ -33,8 +33,6 @@ public class Cliente {
     @Getter @Setter @Column(name="Servicio", length = 10, nullable = false)
     private String servicioAbonado;//Servicio que contiene el abonado, ya sea: Personal, Movistar, Claro, etc;
     
-
-
     public Cliente(Long id, String nombre, String apellido, String email, String telefono, String dni, String tipoCliente, Long numCuenta, String servicioAbonado) {
         this.id = id;
         this.nombre = nombre;

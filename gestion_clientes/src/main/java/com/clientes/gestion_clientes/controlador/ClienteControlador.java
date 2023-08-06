@@ -73,7 +73,7 @@ public class ClienteControlador {
     public ResponseEntity<Map<String,Boolean>>eliminarCliente(@PathVariable Long id){
 		Cliente cliente = repository.findById(id
 )
-				            .orElseThrow(() -> new ResourceNotFoundException("No existe el empleado con el ID : " + id
+				            .orElseThrow(() -> new ResourceNotFoundException("No existe el cliente con el numero: " + id
                     ));
 		
 		repository.delete(cliente);
