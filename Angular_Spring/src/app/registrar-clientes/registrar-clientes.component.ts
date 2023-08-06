@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Cliente } from '../cliente';
 import { ClienteService } from '../cliente.service';
 import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
+
 
 @Component({
   selector: 'app-registrar-clientes',
@@ -21,7 +23,14 @@ export class RegistrarClientesComponent implements OnInit{
   guardarCliente(){
     this.clienteService.registrarCliente(this.cliente).subscribe(dato => {
       console.log(dato);
+      Swal.fire(
+        'Cliente registrado',
+        'Su cliente con numero de cuenta ' + this.cliente.numCuenta + 
+        ' ha sido registrado',
+        'success'
+      )
       this.irALaListaClientes();
+      
     }, error => console.log(error));
   }
 

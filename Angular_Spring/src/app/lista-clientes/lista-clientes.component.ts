@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Cliente } from '../cliente';
 import { ClienteService } from '../cliente.service';
 import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-lista-clientes',
@@ -11,6 +12,8 @@ import { Router } from '@angular/router';
 export class ListaClientesComponent implements OnInit{
 
   clientes:Cliente[];
+
+  cliente : Cliente = new Cliente();
 
   constructor(private clienteServicio:ClienteService, private router:Router){}
 
@@ -27,10 +30,18 @@ export class ListaClientesComponent implements OnInit{
   }
 
   eliminarCliente(id: number) {
+    
     this.clienteServicio.eliminarCliente(id).subscribe(dato => {
       console.log(dato);
+      Swal.fire(
+        'Cliente eliminado',
+        'Su cliente con numero de cuenta ' + this.clientes[this.cliente.numCuenta] +' ha sido eliminado',
+        'success'
+      )
+      
       this.obtenerClientes();
-    }) 
+    })
+    
   }
 
   actualizarCliente(id: number) {

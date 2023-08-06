@@ -21,8 +21,9 @@
             <th>{{cliente.tipoCliente}}</th>
             <th>{{cliente.servicioAbonado}}</th>
 
-            <button (click)="actualizarCliente(cliente.numCuenta)" class="btn btn-info">Actualizar</button>
-            <button (click)="eliminarCliente(cliente.numCuenta)" class="btn btn-danger" style="margin-left: 10px;">Eliminar</button>
+            <!-- <button (click)="actualizarCliente(cliente.numCuenta)" class="btn btn-info">Actualizar</button> -->
+            <!-- <button (click)="eliminarCliente(cliente.numCuenta)" class="fa-solid fa-trash-can fa-xs" style="color: #d80e0e;"></button> -->
+            <th> <i class="fa-solid fa-trash-can fa-xs" style="color: #d80e0e;" (click)="eliminarCliente(cliente.id)"></i> </th>
             <button (click)="verDetallesCliente(cliente.numCuenta)" class="btn btn-primary">Detalles</button>
         </tr>
         

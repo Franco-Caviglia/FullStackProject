@@ -11,6 +11,12 @@
     ],
     "button-type": "off",
     "no-inline-styles": "off",
-    "typescript-config/strict": "off"
+    "typescript-config/strict": "off",
+    "axe/aria": [
+      "default",
+      {
+        "empty-table-header": "off"
+      }
+    ]
   }
 }
