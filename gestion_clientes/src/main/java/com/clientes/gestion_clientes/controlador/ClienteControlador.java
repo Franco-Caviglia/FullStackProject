@@ -61,9 +61,34 @@ public class ClienteControlador {
         cliente.setTelefono(detallesCliente.getTelefono());
         cliente.setDni(detallesCliente.getDni());
         cliente.setTipoCliente(detallesCliente.getTipoCliente());
-        cliente.setServicioAbonado(detallesCliente.getServicioAbonado());
+        cliente.setEmpresa(detallesCliente.getEmpresa());
+        cliente.setClickApp(detallesCliente.getClickApp());
+        cliente.setCodInstalador(detallesCliente.getCodInstalador());
+        cliente.setComodato(detallesCliente.getComodato());
+        cliente.setComunicador(detallesCliente.getComunicador());
+        cliente.setCuenta(detallesCliente.getCuenta());
+        cliente.setDomicilio(detallesCliente.getDomicilio());
+        cliente.setEstado(detallesCliente.getEstado());
+        cliente.setLineaAlarma(detallesCliente.getLineaAlarma());
+        cliente.setLocalidad(detallesCliente.getLocalidad());
+        cliente.setNtLinkSerie(detallesCliente.getNtLinkSerie());
+        cliente.setNumCuenta(detallesCliente.getNumCuenta());
+        cliente.setNumTarjeta(detallesCliente.getNumTarjeta());
+        cliente.setProvincia(detallesCliente.getProvincia());
+        cliente.setTipo(detallesCliente.getTipo());
+        cliente.setTipoAlarma(detallesCliente.getTipoAlarma());
+        cliente.setTipoCuenta(detallesCliente.getTipoCuenta());
+        cliente.setId(detallesCliente.getId());
+        cliente.setCobrador(detallesCliente.getCobrador());
+        cliente.setComprobante(detallesCliente.getComprobante());
+        cliente.setCuentaTerceros(detallesCliente.getCuentaTerceros());
+        cliente.setDin(detallesCliente.getDin());
+        cliente.setPeridodo(detallesCliente.getPeridodo());
+        cliente.setFechaAlta(detallesCliente.getFechaAlta());
+        cliente.setFechaBaja(detallesCliente.getFechaBaja());
+        cliente.setAbonado(detallesCliente.getAbonado());
 
-        
+
         Cliente clienteActualizado = repository.save(cliente);
         
         return ResponseEntity.ok(clienteActualizado);
