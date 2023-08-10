@@ -1,43 +1,80 @@
 <div>
     <form #clienteForm="ngForm">
         <div>
-        <div class="mb-3">
-            <label for="numCuenta" class="form-label">Numero Cuenta</label>
-            <input type="number" 
-            class="form-control" 
-            id="numCuenta" 
-            [(ngModel)]="cliente.numCuenta"
-            name="numCuenta"
-            required
-            #numCuenta = "ngModel"
-            placeholder="Ingrese numero de cuenta">
+        <div class="row g-3 align-items-center" style="margin-top: 1px; justify-content: space-between;">
+
+            <!-- Seccion Num Cuenta -->
+            <div class="col-auto" style="padding-right: 0%;">
+                <label for="numCuenta" class="col-form-label"  style="font-size:small;"><b>Num. de Cuenta</b></label>
+            </div>
+            <div class="col-auto" style="padding-left: 0%;">
+                <input type="number" 
+                class="form-control" 
+                id="numCuenta"
+                style="width: 130px; font-size:small;"
+                [(ngModel)]="cliente.numCuenta"
+                name="numCuenta"
+                required
+                #numCuenta = "ngModel"
+                placeholder="Num. Cuenta">
+            </div>
+
+            <!-- Seccion nombre -->
+            <div class="col-auto" style="padding-right: 0%;">
+                <label for="nombre" class="col-form-label"  style="font-size:small;"><b>Nombre</b></label>
+            </div>
+            <div class="col-auto" style="padding-left: 0%;">
+                <input type="text" 
+                class="form-control" 
+                id="nombre" 
+                style="font-size:small;"
+                [(ngModel)]="cliente.nombre"
+                name="nombre"
+                required
+                minlength="4"
+                maxlength="10"
+                placeholder="Ingrese su nombre"
+                #nombre = "ngModel">
+            </div>
+
+
+            <!-- Seccion Apellido -->
+            <div class="col-auto" style="padding-right: 0%;">
+                <label for="apellido" class="col-form-label"  style="font-size:small;"><b>Apellido</b></label>
+            </div>
+            <div class="col-auto" style="padding-left: 0%;">
+                <input type="text" 
+                class="form-control" 
+                id="apellido" 
+                style="font-size:small;"
+                [(ngModel)]="cliente.apellido"
+                name="apellido"
+                required
+                minlength="4"
+                maxlength="10"
+                placeholder="Ingrese su apellido"
+                #apellido="ngModel">
+            </div>
+
+            <div class="col-auto" style="padding-right: 0%;">
+                <label for="dni" class="col-form-label" style="font-size:small;"><b>DNI</b></label>
+            </div>
+            <div class="col-auto" style="padding-left: 0%;">
+                <input type="text" 
+                class="form-control" 
+                id="dni" 
+                style="font-size:small;"
+                [(ngModel)]="cliente.dni"
+                name="dni"
+                required
+                placeholder="Ingrese su DNI"
+                #dni="ngModel">
+            </div>
+
+            
         </div>
-        <div class="mb-3">
-            <label for="nombre" class="form-label">Nombre</label>
-            <input type="text" 
-            class="form-control" 
-            id="nombre" 
-            [(ngModel)]="cliente.nombre"
-            name="nombre"
-            required
-            minlength="4"
-            maxlength="10"
-            placeholder="Ingrese su nombre"
-            #nombre = "ngModel">
-        </div>
-        <div class="mb-3">
-            <label for="apellido" class="form-label">Apellido</label>
-            <input type="text" 
-            class="form-control" 
-            id="apellido" 
-            [(ngModel)]="cliente.apellido"
-            name="apellido"
-            required
-            minlength="4"
-            maxlength="10"
-            placeholder="Ingrese su apellido"
-            #apellido="ngModel">
-        </div>
+    
+
         <div class="mb-3">
             <label for="email" class="form-label">Email</label>
             <input type="email" 
@@ -61,15 +98,8 @@
             #telefono="ngModel">
         </div>
         <div class="mb-3">
-            <label for="dni" class="form-label">DNI</label>
-            <input type="number" 
-            class="form-control" 
-            id="dni" 
-            [(ngModel)]="cliente.dni"
-            name="dni"
-            required
-            placeholder="Ingrese su dni"
-            #dni="ngModel">
+            
+            
         </div>
         <div class="mb-3">
             <label for="tipoCliente" class="form-label">Servicio abonado</label>

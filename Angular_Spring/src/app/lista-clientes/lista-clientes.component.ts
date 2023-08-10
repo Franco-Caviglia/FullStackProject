@@ -30,18 +30,35 @@ export class ListaClientesComponent implements OnInit{
   }
 
   eliminarCliente(id: number) {
-    
-    this.clienteServicio.eliminarCliente(id).subscribe(dato => {
-      console.log(dato);
-      Swal.fire(
-        'Cliente eliminado',
-        'Su cliente con numero de cuenta ' + this.clientes[this.cliente.numCuenta] +' ha sido eliminado',
-        'success'
-      )
-      
-      this.obtenerClientes();
-    })
-    
+      Swal.fire({
+        title: '¿Estas seguro?',
+        confirmButtonText: 'Eliminar',
+        cancelButtonText: 'Cancelar',
+        showCancelButton: true
+      }).then((result) => {
+        if (result.isConfirmed){
+          this.clienteServicio.eliminarCliente(id).subscribe(dato => {
+            console.log(dato); 
+            this.obtenerClientes();
+          })
+          
+          Swal.fire({
+            position: 'center',
+            icon: 'success',
+            title: 'El cliente ha sido eliminado',
+            showConfirmButton: false,
+            timer: 1500
+          });
+        } else {
+          Swal.fire({
+            position: 'center',
+            icon: 'warning',
+            title: 'Cancelado',
+            showConfirmButton: false,
+            timer: 1500
+          });
+        }
+      });
   }
 
   actualizarCliente(id: number) {
@@ -52,3 +69,6 @@ export class ListaClientesComponent implements OnInit{
     this.router.navigate(['cliente-detalles', id]);
   }
 }
+
+
+
