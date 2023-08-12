@@ -1,12 +1,34 @@
 export class Cliente {
-
-    id:number;
-    numCuenta:number;
-    nombre:string;
-    apellido:string;
-    email:string;
-    telefono:string;
-    dni:string;
-    tipoCliente:string;
-    servicioAbonado:string;
+  id: number;
+  numCuenta: number;
+  nombre: string;
+  apellido: string;
+  email: string;
+  telefono: string;
+  dni: string;
+  tipoCliente: string;
+  empresa: string;
+  cuenta: string;
+  estado: string;
+  tipo: string;
+  numTarjeta: string;
+  domicilio: string;
+  localidad: string;
+  provincia: string;
+  tipoCuenta: string;
+  comunicador: string;
+  comodato: string;
+  clickApp: string;
+  ntLinkSerie: string;
+  lineaAlarma: string;
+  codInstalador: string;
+  tipoAlarma: string;
+  comprobante: string;
+  cuentaTerceros: string;
+  peridodo: string;
+  din: string;
+  fechaAlta: string;
+  fechaBaja: string;
+  cobrador: string;
+  abonado: string;
 }

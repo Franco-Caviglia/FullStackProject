@@ -32,7 +32,7 @@ export class ClienteService {
     return this.httpClient.delete(`${this.baseURL}/${numCuenta}`);
   }
 
-  obtenerClienteId(numCuenta: number) : Observable<Object>{
-    return this.httpClient.get(`${this.baseURL}/${numCuenta}`);
+  obtenerClienteById(id: number) : Observable<Cliente>{
+    return this.httpClient.get<Cliente>(`${this.baseURL}/${id}`);
   }
 }

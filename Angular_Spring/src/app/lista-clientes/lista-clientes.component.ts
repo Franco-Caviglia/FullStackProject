@@ -10,6 +10,7 @@ import Swal from 'sweetalert2';
   styleUrls: ['./lista-clientes.component.css']
 })
 export class ListaClientesComponent implements OnInit{
+  
 
   clientes:Cliente[];
 
@@ -61,12 +62,9 @@ export class ListaClientesComponent implements OnInit{
       });
   }
 
-  actualizarCliente(id: number) {
-    this.router.navigate(['actualizar-cliente', id]);
-  }
 
   verDetallesCliente(id:number){
-    this.router.navigate(['cliente-detalles', id]);
+    this.router.navigate(['info-clientes', id]);
   }
 }
 

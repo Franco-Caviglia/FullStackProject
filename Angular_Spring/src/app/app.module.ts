@@ -7,13 +7,16 @@ import { ListaClientesComponent } from './lista-clientes/lista-clientes.componen
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { RegistrarClientesComponent } from './registrar-clientes/registrar-clientes.component';
+import { InfoClienteComponent } from './info-cliente/info-cliente.component';
+
 
 
 @NgModule({
   declarations: [
     AppComponent,
     ListaClientesComponent,
-    RegistrarClientesComponent
+    RegistrarClientesComponent,
+    InfoClienteComponent
   ],
   imports: [
     BrowserModule,

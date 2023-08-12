@@ -115,17 +115,17 @@
             #tipoCliente="ngModel">
         </div>
         <div class="mb-3">
-            <label for="servicioAbonado" class="form-label">Servicio telefono</label>
+            <label for="empresa" class="form-label">Servicio telefono</label>
             <input type="text" 
             class="form-control" 
-            id="servicioAbonado" 
-            [(ngModel)]="cliente.servicioAbonado"
-            name="servicioAbonado"
+            id="empresa" 
+            [(ngModel)]="cliente.empresa"
+            name="empresa"
             required
             minlength="4"
             maxlength="10"
             placeholder="Ingrese su servicio de telefono"
-            #servicioAbonado="ngModel">
+            #empresa="ngModel">
         </div>
         <button class="btn btn-success" [disabled]="!clienteForm.form.valid" (click)="onSubmit()">Guardar</button>
         </div>
