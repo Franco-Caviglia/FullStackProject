@@ -18,7 +18,10 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.clientes.gestion_clientes.excepciones.ResourceNotFoundException;
 import com.clientes.gestion_clientes.modelo.Cliente;
+
 import com.clientes.gestion_clientes.repository.ClienteRepository;
+import com.clientes.gestion_clientes.service.ClienteService;
+
 
 @RestController
 @RequestMapping("/api/v2")
@@ -28,16 +31,23 @@ public class ClienteControlador {
     @Autowired
     private ClienteRepository repository;//Var utilizada para conectarse a la BD y asi traer o enviar las consultas;
 
+    
+    private final ClienteService clienteService;
+
+    public ClienteControlador(ClienteService clienteService) {
+        this.clienteService = clienteService;
+    }
+
     //este metodo es para listar todos los clientes;
     @GetMapping("/clientes")
     public List<Cliente> listarTodosLosClientes(){ 
         return repository.findAll();
     }
 
-    //este metodo es para guardar el empleado;
+    //este metodo es para guardar el cliente, definido en el servicio del cliente;
     @PostMapping("/clientes")
     public Cliente guardarCliente(@RequestBody Cliente cliente){
-        return repository.save(cliente);
+        return clienteService.guardarCliente(cliente);
     }
 
 
@@ -55,18 +65,17 @@ public class ClienteControlador {
         Cliente cliente = repository.findById(id)
                             .orElseThrow(()-> new ResourceNotFoundException("No existe el cliente con el id: " + id));
 
-        cliente.setNombre(detallesCliente.getNombre());
-        cliente.setApellido(detallesCliente.getApellido());
+        cliente.setNombre_titular(detallesCliente.getNombre_titular());
+        cliente.setApellido_titular(detallesCliente.getApellido_titular());
         cliente.setEmail(detallesCliente.getEmail());
         cliente.setTelefono(detallesCliente.getTelefono());
         cliente.setDni(detallesCliente.getDni());
-        cliente.setTipoCliente(detallesCliente.getTipoCliente());
+        // cliente.setTipoCliente(detallesCliente.getTipoCliente());
         cliente.setEmpresa(detallesCliente.getEmpresa());
         cliente.setClickApp(detallesCliente.getClickApp());
         cliente.setCodInstalador(detallesCliente.getCodInstalador());
         cliente.setComodato(detallesCliente.getComodato());
         cliente.setComunicador(detallesCliente.getComunicador());
-        cliente.setCuenta(detallesCliente.getCuenta());
         cliente.setDomicilio(detallesCliente.getDomicilio());
         cliente.setEstado(detallesCliente.getEstado());
         cliente.setLineaAlarma(detallesCliente.getLineaAlarma());
@@ -75,19 +84,15 @@ public class ClienteControlador {
         cliente.setNumCuenta(detallesCliente.getNumCuenta());
         cliente.setNumTarjeta(detallesCliente.getNumTarjeta());
         cliente.setProvincia(detallesCliente.getProvincia());
-        cliente.setTipo(detallesCliente.getTipo());
+        cliente.setTipoPago(detallesCliente.getTipoPago());
         cliente.setTipoAlarma(detallesCliente.getTipoAlarma());
         cliente.setTipoCuenta(detallesCliente.getTipoCuenta());
         cliente.setId(detallesCliente.getId());
         cliente.setCobrador(detallesCliente.getCobrador());
-        cliente.setComprobante(detallesCliente.getComprobante());
-        cliente.setCuentaTerceros(detallesCliente.getCuentaTerceros());
-        cliente.setDin(detallesCliente.getDin());
         cliente.setPeridodo(detallesCliente.getPeridodo());
         cliente.setFechaAlta(detallesCliente.getFechaAlta());
         cliente.setFechaBaja(detallesCliente.getFechaBaja());
         cliente.setAbonado(detallesCliente.getAbonado());
-
 
         Cliente clienteActualizado = repository.save(cliente);
         
