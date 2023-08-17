@@ -1,0 +1,21 @@
+
+.container{
+    padding:10px;
+}
+.datos-generales{
+    display: grid;
+    grid-template-columns: auto auto auto;
+    
+    padding-top: 10px;
+    
+   
+}
+.mb-3{
+    padding: 0 10px;
+}
+button{
+    position: relative;
+    left: 90%;
+    
+}
+
