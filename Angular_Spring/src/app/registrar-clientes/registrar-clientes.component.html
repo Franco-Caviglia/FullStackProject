@@ -1,33 +1,32 @@
-<div>
+<div class="container">
     <form #clienteForm="ngForm">
-        <div>
-        <div class="row g-3 align-items-center" style="margin-top: 1px; justify-content: space-between;">
-
-            <!-- Seccion Num Cuenta -->
-            <div class="col-auto" style="padding-right: 0%;">
-                <label for="numCuenta" class="col-form-label"  style="font-size:small;"><b>Num. de Cuenta</b></label>
-            </div>
-            <div class="col-auto" style="padding-left: 0%;">
+        
+       <div class="datos-generales">
+            
+             <!-- Seccion Num Cuenta -->
+        <div class="mb-3">
+                <label for="numCuenta" class="form-label">Num. de Cuenta</label>
+            
                 <input type="number" 
                 class="form-control" 
                 id="numCuenta"
-                style="width: 130px; font-size:small;"
+                
                 [(ngModel)]="cliente.numCuenta"
                 name="numCuenta"
                 required
+
                 #numCuenta = "ngModel"
                 placeholder="Num. Cuenta">
-            </div>
+        </div>
 
             <!-- Seccion nombre -->
-            <div class="col-auto" style="padding-right: 0%;">
-                <label for="nombre" class="col-form-label"  style="font-size:small;"><b>Nombre</b></label>
-            </div>
-            <div class="col-auto" style="padding-left: 0%;">
+        <div class="mb-3">
+                <label for="nombre" class="form-label">Nombre</label>
+            
                 <input type="text" 
                 class="form-control" 
                 id="nombre" 
-                style="font-size:small;"
+                
                 [(ngModel)]="cliente.nombre"
                 name="nombre"
                 required
@@ -35,18 +34,17 @@
                 maxlength="10"
                 placeholder="Ingrese su nombre"
                 #nombre = "ngModel">
-            </div>
+        </div>
 
 
             <!-- Seccion Apellido -->
-            <div class="col-auto" style="padding-right: 0%;">
-                <label for="apellido" class="col-form-label"  style="font-size:small;"><b>Apellido</b></label>
-            </div>
-            <div class="col-auto" style="padding-left: 0%;">
+        <div class="mb-3">
+                <label for="apellido" class="form-label">Apellido</label>
+            
                 <input type="text" 
                 class="form-control" 
                 id="apellido" 
-                style="font-size:small;"
+                
                 [(ngModel)]="cliente.apellido"
                 name="apellido"
                 required
@@ -54,81 +52,335 @@
                 maxlength="10"
                 placeholder="Ingrese su apellido"
                 #apellido="ngModel">
-            </div>
-
-            <div class="col-auto" style="padding-right: 0%;">
-                <label for="dni" class="col-form-label" style="font-size:small;"><b>DNI</b></label>
-            </div>
-            <div class="col-auto" style="padding-left: 0%;">
-                <input type="text" 
+        </div>
+            
+            <!--DNI-->
+        <div class="mb-3">
+                <label for="dni" class="form-label">DNI</label>
+                <input type="number" 
                 class="form-control" 
                 id="dni" 
-                style="font-size:small;"
+                
                 [(ngModel)]="cliente.dni"
                 name="dni"
                 required
                 placeholder="Ingrese su DNI"
                 #dni="ngModel">
-            </div>
+        </div>
 
             
-        </div>
-    
-
-        <div class="mb-3">
-            <label for="email" class="form-label">Email</label>
-            <input type="email" 
-            class="form-control" 
-            id="email" 
-            [(ngModel)]="cliente.email"
-            name="email"
-            required
-            placeholder="Ingrese su email: name@example.com"
-            #email="ngModel">
-        </div>
-        <div class="mb-3">
-            <label for="telefono" class="form-label">Telefono</label>
-            <input type="text" 
-            class="form-control" 
-            id="telefono" 
-            [(ngModel)]="cliente.telefono"
-            name="telefono"
-            required
-            placeholder="Ingrese su telefono"
-            #telefono="ngModel">
-        </div>
-        <div class="mb-3">
-            
-            
-        </div>
-        <div class="mb-3">
-            <label for="tipoCliente" class="form-label">Servicio abonado</label>
-            <input type="text" 
-            class="form-control" 
-            id="tipoCliente" 
-            [(ngModel)]="cliente.tipoCliente"
-            name="tipoCliente"
-            required
-            minlength="4"
-            maxlength="10"
-            placeholder="Ingrese su servicio"
-            #tipoCliente="ngModel">
-        </div>
-        <div class="mb-3">
-            <label for="empresa" class="form-label">Servicio telefono</label>
-            <input type="text" 
-            class="form-control" 
-            id="empresa" 
-            [(ngModel)]="cliente.empresa"
-            name="empresa"
-            required
-            minlength="4"
-            maxlength="10"
-            placeholder="Ingrese su servicio de telefono"
-            #empresa="ngModel">
-        </div>
-        <button class="btn btn-success" [disabled]="!clienteForm.form.valid" (click)="onSubmit()">Guardar</button>
-        </div>
         
+        
+    
+     <!--Email-->
+        <div class="mb-3">
+        <label for="email" class="form-label">Email</label>
+        <input type="email" 
+        class="form-control" 
+        id="email" 
+        [(ngModel)]="cliente.email"
+        name="email"
+        required
+        placeholder="Ingrese su email: name@example.com"
+        #email="ngModel">
+       </div>
+       <div class="mb-3">
+        <label for="telefono" class="form-label">Telefono</label>
+        <input type="number" 
+        class="form-control" 
+        id="telefono" 
+        [(ngModel)]="cliente.telefono"
+        name="telefono"
+        required
+        placeholder="Ingrese su telefono"
+        #telefono="ngModel">
+    </div>
+        <!--tipo de cliente-->
+    
+    <div class="mb-3">
+        <label for="tipoCliente" class="form-label">Servicio abonado</label>
+        <input type="text" 
+        class="form-control" 
+        id="tipoCliente" 
+        [(ngModel)]="cliente.tipoCliente"
+        name="tipoCliente"
+        required
+        minlength="4"
+        maxlength="10"
+        placeholder="Ingrese su servicio"
+        #tipoCliente="ngModel">
+    </div>
+
+    <!--Empresa-->
+    <div class="mb-3">
+        <label for="empresa" class="form-label">Servicio telefono</label>
+        <input type="text" 
+        class="form-control" 
+        id="empresa" 
+        [(ngModel)]="cliente.empresa"
+        name="empresa"
+        required
+        minlength="4"
+        maxlength="10"
+        placeholder="Ingrese su servicio de telefono"
+        #empresa="ngModel">
+    
+    </div>
+
+    <div class="mb-3">
+        <label for="cuenta" class="form-label">Cuenta</label>
+        <input type="text"
+        class="form-control"
+        id="empresa"
+        [(ngModel)]="cliente.cuenta"
+        required
+
+        #cuenta="ngModel"
+        >
+    </div>
+
+    <div class="mb-3">
+        <label for="estado">Estado</label>
+        <input type="text"
+        class="form-control"
+        id="estado"
+        [(ngModel)]="cliente.estado"
+
+        #tipo="ngModel"
+        >
+    </div>
+
+    <div class="mb-3">
+        <label for="tipo">Tipo</label>
+        <input type="text"
+        class="form-control"
+        id="tipo"
+        [(ngModel)]="cliente.tipo"
+        required
+        
+        #tipo="ngModel"
+        >
+    </div>
+
+   <div class="mb-3">
+       <label for="numTarjeta">Numero de Tarjeta</label>
+       <input type="number"
+       class="form-control"
+       id="numTarjeta"
+       [(ngModel)]="cliente.numTarjeta"
+       required
+       
+       #numTarjeta="ngModel"
+       >
+   </div>
+
+   <div class="mb-3">
+        <label for="domicilio">Domicilio</label>
+        <input type="text"
+        class="form-control"
+        id="domicilio"
+        [(ngModel)]="cliente.domicilio"
+        required
+
+        #domicilio="ngModel"
+        >
+   </div>
+
+   <div class="mb-3">
+        <label for="localidad">Localidad</label>
+        <input type="text"
+        class="form-control"
+        id="domicilio"
+        [(ngModel)]="cliente.localidad"
+        required
+        
+        #localidad="ngModel"
+        >         
+   </div>
+
+   <div class="mb-3">
+       <label for="provincia">Provincia</label>
+        <input type="text"
+        class="form-control"
+        id="provincia"
+        [(ngModel)]="cliente.provincia"
+        required
+        
+        #provincia="ngModel"
+        >
+    </div>
+
+   <div class="mb-3">
+       <label for="tipoCuenta">Tipo de Cuenta</label>
+       <input type="text"
+       class="form-control"
+       id="provincia"
+       [(ngModel)]="cliente.tipoCuenta"
+       required
+       
+       #tipoCuenta="ngModel"
+       >
+   </div>
+
+   <div class="mb-3">
+       <label for="comunicador">Comunicador</label>
+       <input type="text"
+       class="form-control"
+       id="comunicador"
+       [(ngModel)]="cliente.comunicador"
+       required
+       
+       #comunicador="ngModel"
+       >
+   </div>
+    
+   <div class="mb-3">
+    <label for="comodato">Comodato</label>
+    <input type="text"
+    class="form-control"
+    id="comunicador"
+    [(ngModel)]="cliente.comodato"
+    required
+    
+    #comodato="ngModel"
+    >
+   </div>
+
+   <div class="mb-3">
+      <label for="clickApp">ClickApp</label>
+      <input type="text"
+      class="form-control"
+      id="clickApp"
+      [(ngModel)]="cliente.clickApp"
+      
+      #clickApp="ngModel"
+      >
+   </div>
+
+   <div class="mb-3">
+       <label for="ntLinkSerie">NTLinkSerie</label>
+       <input type="text"
+       class="form-control"
+       id="ntLinkSerie"
+       [(ngModel)]="cliente.ntLinkSerie"
+       
+       #ntLinkSerie="ngModel"
+       >
+   </div>
+
+   <div class="mb-3">
+        <label for="lineaAlarma">Linea de Alarma</label>
+        <input type="text"
+        class="form-control"
+        id="lineaAlarma"
+        [(ngModel)]="cliente.lineaAlarma"
+        
+        #lineaAlarma="ngModel"
+        >
+    </div>
+
+   <div class="mb-3">
+         <label for="codInstalador">Cod. Instalador</label>
+         <input type="text"
+         class="form-control"
+         id="codInstalador"
+         [(ngModel)]="cliente.codInstalador"
+         
+         #codInstalador="ngModel"
+         >
+   </div>
+
+   <div class="mb-3">
+         <label for="tipoAlarma">Tipo de Alarma</label>
+         <input type="text"
+         class="form-control"
+         id="tipoAlarma"
+         [(ngModel)]="cliente.tipoAlarma"
+         
+         #tipoAlarma="ngModel"
+         >
+   </div>
+
+   <div class="mb-3">
+         <label for="comprobante">Comprobante</label>
+         <input type="text"
+         class="form-control"
+         id="comprobante"
+         [(ngModel)]="cliente.comprobante"
+         
+         #comprobante="ngModel"
+         >
+   </div>
+
+   <div class="mb-3">
+         <label for="cuentaTerceros">Cuenta 3ros</label>
+         <input type="text"
+         class="form-control"
+         id="cuentaTerceros"
+         [(ngModel)]="cliente.cuentaTerceros"
+         
+         #cuentaTerceros
+         >
+   </div>
+
+   <div class="mb-3">
+         <label for="peridodo">Peridodo</label>
+         <input type="text"
+         class="form-control"
+         id="peridodo"
+         [(ngModel)]="cliente.peridodo"
+         
+         #periodo
+         >
+   </div>
+   
+   <div class="mb-3">
+        <label for="fechaAlta">Fecha Alta</label>
+         <input type="text"
+         class="form-control"
+         id="fechaAlta"
+         [(ngModel)]="cliente.fechaAlta"
+         
+         #fechaAlta
+         >
+    </div>
+
+   <div class="mb-3">
+        <label for="fechaBaja">Fecha Baja</label>
+        <input type="text"
+        class="form-control"
+        id="fechaBaja"
+         [(ngModel)]="cliente.fechaBaja"
+        
+        #fechaBaja 
+        >
+       
+   </div>
+
+   <div class="mb-3">
+        <label for="cobrador">Cobrador</label>
+        <input type="text"
+        class="form-control"
+        id="cobrador"
+        [(ngModel)]="cliente.cobrador"
+        
+        #cobrador>
+   </div>
+
+   <div class="mb-3">
+        <label for="abonado">Abonado</label>
+        <input type="text"
+        class="form-control"
+        id="abonado"
+        [(ngModel)]="cliente.abonado"
+        
+        #abonado
+        >
+        
+    </div>
+ </div>
+
+        <button class="btn btn-success" [disabled]="!clienteForm.form.valid" (click)="onSubmit()">Guardar</button>
+    
     </form>
 </div>

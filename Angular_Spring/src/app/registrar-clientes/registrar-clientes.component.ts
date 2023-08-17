@@ -34,7 +34,7 @@ export class RegistrarClientesComponent implements OnInit{
     }, error => console.log(error));
   }
 
-  irALaListaClientes(){
+  irALaListaClientes(){ 
     this.router.navigate(['/clientes']);
   }
 
